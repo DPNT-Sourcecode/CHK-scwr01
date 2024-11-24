@@ -3,4 +3,4 @@ import pytest
 
 class TestCheckout():
     def test_checkout_1(self):
-        assert checkout_solution("AAA")==50
+        assert checkout_solution("AAA")==130
