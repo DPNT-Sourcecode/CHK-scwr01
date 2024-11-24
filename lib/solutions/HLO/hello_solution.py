@@ -11,5 +11,6 @@ def hello(friend_name):
     Return:
         str
     """
-    
+    return "hello world"
+
 
