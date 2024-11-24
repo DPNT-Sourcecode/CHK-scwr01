@@ -1,5 +1,6 @@
 
 
+from collections import Counter
 # noinspection PyUnusedLocal
 # skus = unicode string
 def get_prices()->dict:
@@ -53,4 +54,13 @@ def checkout(skus):
     if validate_skus(skus,prices):
         return -1
     
+    items=Counter(skus)
+    
+    total_price=0
+    
+    
+    
+    
+    
     return 123
+
