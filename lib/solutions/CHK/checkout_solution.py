@@ -14,7 +14,7 @@ def get_prices()->dict:
         "C":20,
         "D":15
     }
-    
+
 def get_offers()->dict:
     """get_offers generate methods
 
@@ -25,8 +25,17 @@ def get_offers()->dict:
         "A":(3,130),
         "B":(2,45)
     }
-    
-    
+def validate_skus(skus,prices) ->bool:
+    """validate_skus validate skus
+
+    Args:
+        skus (str): _description_
+        prices (dict): _description_
+
+    Returns:
+        bool: _description_
+    """
+    return all(item in prices for item in skus)
 
 def checkout(skus):
     """checkout supermarkt checkout and calculate the total prices
@@ -45,5 +54,6 @@ def checkout(skus):
         return -1
     
     return 123
+
 
 
