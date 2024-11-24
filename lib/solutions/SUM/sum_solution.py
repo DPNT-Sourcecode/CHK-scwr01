@@ -10,4 +10,3 @@ def compute(x:int, y:int)->int:
         _type_: int
     """
     return x+y
-
