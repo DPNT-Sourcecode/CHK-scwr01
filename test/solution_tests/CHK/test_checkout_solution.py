@@ -14,7 +14,8 @@ def test_checkout_2():
     assert checkout("EEB")==80
     assert checkout("EEBB")==110
     assert checkout(123)==-1
-    assert checkout("EEBC")==-1
+    assert checkout("EEBC")==100
+    assert checkout("EEBG")==-1
     
 if __name__ == "__main__":
     pytest.main()
