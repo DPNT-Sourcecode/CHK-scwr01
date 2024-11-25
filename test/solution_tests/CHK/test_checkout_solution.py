@@ -17,5 +17,9 @@ def test_checkout_2():
     assert checkout("EEBC")==100
     assert checkout("EEBG")==-1
     
+def test_checkout_3():
+    """test_checkout_3 _summary_
+    """
+    
 if __name__ == "__main__":
     pytest.main()

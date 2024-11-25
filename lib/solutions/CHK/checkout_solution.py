@@ -14,7 +14,8 @@ def get_prices()->dict:
         "B":30,
         "C":20,
         "D":15,
-        "E":40
+        "E":40,
+        "F":10
     }
 
 def get_offers()->dict:
@@ -26,7 +27,8 @@ def get_offers()->dict:
     return {
         "A":[(3,130),(5,200)],
         "B":[(2,45)], 
-        "E":(2,"B")
+        "E":(2,"B"),
+        "F":(3,"F")
     }
 
 def validate_skus(skus,prices) ->bool:
