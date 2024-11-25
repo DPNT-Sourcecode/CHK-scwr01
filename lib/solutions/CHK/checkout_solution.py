@@ -88,7 +88,10 @@ def apply_prices_offer(item,count,offers,prices):
 def apply_group_discount(items,prices):
     group_item=["S","T","X","Y","Z"]
     group_count= sum(items[item] for item in group_item if item in items)
-    
+    if group_count >=3:
+        group_discount_count=group_count//3
+        group_price=45
+        return group_discount_count * group_price
     return 0
             
 def checkout(skus):
@@ -110,13 +113,14 @@ def checkout(skus):
     
     items=Counter(skus)
     
+        
     for item,offer in offers.items():
         if isinstance(offer,tuple) and offer[1] in prices:
             apply_free_offer(items,item,offer[1],offer[0])
         
         
     
-    total_price=0
+    total_price=apply_group_discount(items,prices)
     for item, count in items.items():
         if item in offers and isinstance(offers[item],list):
             total_price+=apply_prices_offer(item,count,offers,prices)

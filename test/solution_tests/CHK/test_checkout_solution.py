@@ -31,5 +31,8 @@ def test_checkout_4():
     assert checkout("QQQ")==80
     assert checkout("NNNM")==120
     assert checkout("QQQ")==80
+    
+def test_checkout_5():
+    assert checkout("SSS")==45
 if __name__ == "__main__":
     pytest.main()
