@@ -20,6 +20,10 @@ def test_checkout_2():
 def test_checkout_3():
     """test_checkout_3 _summary_
     """
+    assert checkout("FFF")==20
+    assert checkout("FFFF")==30
+    assert checkout("FFFFF")==40
+    assert checkout("FFFFF")==40
     
 if __name__ == "__main__":
     pytest.main()
