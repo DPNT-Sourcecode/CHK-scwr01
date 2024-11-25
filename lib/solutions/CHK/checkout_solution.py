@@ -127,6 +127,3 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
-
-
-
