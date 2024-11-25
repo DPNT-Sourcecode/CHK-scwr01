@@ -50,18 +50,27 @@ def apply_free_offer(items,item,free_item,free_count):
         items[free_item] =max(0,items[free_item]-deduct_item)
 
 def apply_prices_offer(item,count,offers,prices):
+    """apply_prices_offer apply mutiple item different prices offers
+
+    Args:
+        item (_type_): _description_
+        count (_type_): _description_
+        offers (_type_): _description_
+        prices (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     total=0
     if item in offers:
         for offer in sorted(offers[item],key=lambda x: -x[0]):
             offer_qty,offer_price=offer
             offer_used=count//offer_qty
             total += offer_used +offer_price
-             
-            
-    else:
-    total_price += count*prices[item]
+            count %= offer_qty 
+    total += count*prices[item]
 
-    return total_price
+    return total
 
             
 def checkout(skus):
@@ -96,5 +105,3 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
-
-
