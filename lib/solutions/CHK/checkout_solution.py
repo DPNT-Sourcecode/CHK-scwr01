@@ -26,8 +26,16 @@ def get_offers()->dict:
         "A":[(3,130),(5,200)],
         "B":[(2,45)]
     }
-    
-    
+
+def get_free()->dict:
+    """get_free get few 2E one B free
+
+    Returns:
+        dict: _description_
+    """
+    return {
+        "E":(2,"B")
+    }
 def validate_skus(skus,prices) ->bool:
     """validate_skus validate skus
 
@@ -51,12 +59,18 @@ def checkout(skus):
     """
     prices=get_prices()
     offers=get_offers()
-    
+    free_offers= get_free()
     
     if not validate_skus(skus,prices):
         return -1
     
+    
+    
     items=Counter(skus)
+    
+    for item,(qty,free_item) in free_offers.items():
+        
+        
     
     total_price=0
     for item, count in items.items():
@@ -69,4 +83,5 @@ def checkout(skus):
             total_price += count*prices[item]
             
     return total_price
+
 
