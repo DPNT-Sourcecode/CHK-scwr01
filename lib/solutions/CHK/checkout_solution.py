@@ -86,13 +86,24 @@ def apply_prices_offer(item,count,offers,prices):
     return total
 
 def apply_group_discount(items):
-    group_item=["S","T","X","Y","Z"]
-    group_count= sum(items[item] for item in group_item if item in items)
-    if group_count >=3:
-        group_discount_count=group_count//3
-        group_price=45
-        return group_discount_count * group_price
-    return 0
+    """Apply group discount offers for items S, T, X, Y, Z."""
+    group_items = ["S", "T", "X", "Y", "Z"]
+    group_count = sum(items[item] for item in group_items if item in items)
+    
+    group_discount_qty = 3
+    group_discount_price = 45
+    group_discount_count = group_count // group_discount_qty
+    total_discount = group_discount_count * group_discount_price
+    
+    if group_discount_count > 0:
+        items_used_for_discount = group_discount_count * 3
+        for item in group_items:
+            if item in items and items_used_for_discount > 0:
+                used_items = min(items[item], items_used_for_discount)
+                items[item] -= used_items
+                items_used_for_discount -= used_items
+
+    return total_discount
             
 def checkout(skus):
     """checkout supermarkt checkout and calculate the total prices
@@ -120,7 +131,8 @@ def checkout(skus):
         
         
     
-    total_price=apply_group_discount(items,prices)
+    total_price=apply_group_discount(items)
+    
     for item, count in items.items():
         if item in offers and isinstance(offers[item],list):
             total_price+=apply_prices_offer(item,count,offers,prices)
