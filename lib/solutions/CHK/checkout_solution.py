@@ -119,7 +119,7 @@ def checkout(skus):
     prices=get_prices()
     offers=get_offers()
     
-    if not isinstance(skus,str) or not validate_skus(skus,prices) or not skus:
+    if not isinstance(skus,str) or not validate_skus(skus,prices) or not skus or (isinstance(skus, list) and "" in skus):
         return -1
     
     
@@ -141,4 +141,5 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
+
 
