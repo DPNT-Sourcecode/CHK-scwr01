@@ -35,7 +35,11 @@ def get_offers()->dict:
         "Q":[(3,80)],
         "R":(3,"Q"),
         "U":(4,"U"),
-        "V":[(3,130),(2,90)]
+        "V":[(3,130),(2,90)],
+        "S":[(3,45)],
+        "T":[(3,45)],
+        "Y":[(3,45)],
+        "Z":[(3,45)]
     }
 
 def validate_skus(skus,prices) ->bool:
@@ -114,4 +118,5 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
+
 
