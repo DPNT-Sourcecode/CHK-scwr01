@@ -85,6 +85,11 @@ def apply_prices_offer(item,count,offers,prices):
 
     return total
 
+def apply_group_discount(items,prices):
+    group_item=["S","T","X","Y","Z"]
+    group_count= sum(items[item] for item in group_item if item in items)
+    
+    return 0
             
 def checkout(skus):
     """checkout supermarkt checkout and calculate the total prices
@@ -118,5 +123,6 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
+
 
 
