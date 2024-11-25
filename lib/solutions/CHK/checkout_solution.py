@@ -77,14 +77,10 @@ def checkout(skus):
     
     items=Counter(skus)
     
-    for item,(qty,free) in free_offers.items():
-        if item in items and items[item] >= qty:
-            free_items = items[item] // qty
-            if free == item:
-                items[item] -=free
-            else:
-                if free in items:
-                    items[free] = max(0,items[free]-free_items)
+    for item,offer in free_offers.items():
+        if isinstance(offer,tuple) and offer[1] in prices:
+            apply_free_offer(items,item,offer[1],offer[2])
+        
         
     
     total_price=0
