@@ -25,5 +25,11 @@ def test_checkout_3():
     assert checkout("FFFFF")==40
     assert checkout("FFFFFF")==40
     
+def test_checkout_4():
+    """test_checkout_4 _summary_
+    """
+    assert checkout("QQQ")==80
+    assert checkout("NNNM")==120
+    assert checkout("QQQ")==80
 if __name__ == "__main__":
     pytest.main()
