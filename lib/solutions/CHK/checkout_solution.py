@@ -49,6 +49,11 @@ def validate_skus(skus,prices) ->bool:
     """
     return all(item in prices for item in skus)
 
+
+def apply_free_offer():
+    """apply_free_offer calculate free items and excluse them
+    """
+    
 def checkout(skus):
     """checkout supermarkt checkout and calculate the total prices
 
@@ -62,7 +67,7 @@ def checkout(skus):
     offers=get_offers()
     free_offers= get_free()
     
-    if not validate_skus(skus,prices):
+    if not isinstance(skus,str) or not validate_skus(skus,prices):
         return -1
     
     
