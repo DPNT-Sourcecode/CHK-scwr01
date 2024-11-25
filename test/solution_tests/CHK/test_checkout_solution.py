@@ -1,10 +1,12 @@
-from lib.solutions.CHK import checkout_solution
+from lib.solutions.CHK.checkout_solution import checkout
 import pytest
 
 def test_checkout_1(self):
-    assert checkout_solution("AAA")==130
-    assert checkout_solution("A") ==50
-    assert checkout_solution("AA") == 100
+    """test_checkout_1 1 round
+    """
+    assert checkout("AAA")==130
+    assert checkout("A") ==50
+    assert checkout("AA") == 100
     
 if __name__ == "__main__":
     pytest.main()

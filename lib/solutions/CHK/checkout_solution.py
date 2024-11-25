@@ -51,7 +51,7 @@ def checkout(skus):
     offers=get_offers()
     
     
-    if validate_skus(skus,prices):
+    if not validate_skus(skus,prices):
         return -1
     
     items=Counter(skus)
@@ -67,4 +67,3 @@ def checkout(skus):
             total_price += count*prices[item]
             
     return total_price
-
