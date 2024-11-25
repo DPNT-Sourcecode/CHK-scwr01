@@ -11,7 +11,7 @@ def test_checkout_1():
 def test_checkout_2():
     """ test_checkout 2 round
     """
-    
+    assert checkout("EEB")==80
     
     
 if __name__ == "__main__":

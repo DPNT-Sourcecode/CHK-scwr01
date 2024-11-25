@@ -13,7 +13,8 @@ def get_prices()->dict:
         "A":50,
         "B":30,
         "C":20,
-        "D":15
+        "D":15,
+        "E":40
     }
 
 def get_offers()->dict:
@@ -89,6 +90,7 @@ def checkout(skus):
             total_price += count*prices[item]
             
     return total_price
+
 
 
 
