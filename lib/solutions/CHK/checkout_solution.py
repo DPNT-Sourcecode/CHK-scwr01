@@ -50,10 +50,13 @@ def validate_skus(skus,prices) ->bool:
     return all(item in prices for item in skus)
 
 
-def apply_free_offer():
+def apply_free_offer(items,item,free_item,free_count):
     """apply_free_offer calculate free items and excluse them
     """
-    
+    if items[item] >= free_count:
+        deduct_item = items[item] // free_count
+        items[free_item] =max(0,items[free_item]-deduct_item)
+        
 def checkout(skus):
     """checkout supermarkt checkout and calculate the total prices
 
@@ -97,3 +100,4 @@ def checkout(skus):
             total_price += count*prices[item]
             
     return total_price
+
