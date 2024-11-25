@@ -66,8 +66,8 @@ def apply_prices_offer(item,count,offers,prices):
         for offer in sorted(offers[item],key=lambda x: -x[0]):
             offer_qty,offer_price=offer
             offer_used=count//offer_qty
-            total += offer_used +offer_price
-            count %= offer_qty 
+            total += offer_used *offer_price
+            count %= offer_qty
     total += count*prices[item]
 
     return total
@@ -105,3 +105,4 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
+
