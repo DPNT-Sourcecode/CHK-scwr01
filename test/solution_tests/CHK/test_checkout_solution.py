@@ -34,5 +34,6 @@ def test_checkout_4():
     
 def test_checkout_5():
     assert checkout("SSS")==45
+    
 if __name__ == "__main__":
     pytest.main()

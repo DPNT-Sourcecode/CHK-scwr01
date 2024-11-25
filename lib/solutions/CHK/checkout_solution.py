@@ -85,7 +85,7 @@ def apply_prices_offer(item,count,offers,prices):
 
     return total
 
-def apply_group_discount(items,prices):
+def apply_group_discount(items):
     group_item=["S","T","X","Y","Z"]
     group_count= sum(items[item] for item in group_item if item in items)
     if group_count >=3:
