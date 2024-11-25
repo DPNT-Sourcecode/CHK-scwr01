@@ -29,7 +29,7 @@ def get_offers()->dict:
         "E":(2,"B"),
         "F":(3,"F"),
         "H":[(10,80),(5,45)],
-        "K":[(2,150)],
+        "K":[(2,120)],
         "N":(3,"M"),
         "P":[(5,200)],
         "Q":[(3,80)],
@@ -139,3 +139,4 @@ def checkout(skus):
         else:
             total_price+=count*prices[item]
     return total_price
+
