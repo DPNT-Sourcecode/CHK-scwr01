@@ -49,14 +49,15 @@ def apply_free_offer(items,item,free_item,free_count):
         deduct_item = items[item] // free_count
         items[free_item] =max(0,items[free_item]-deduct_item)
 
-def apply_prices_offer(items,count,offers,prices):
+def apply_prices_offer(item,count,offers,prices):
+    total=0
     if item in offers:
-    for offer in sorted(offers[item],key=lambda x: -x[0]):
-        offer_qty,offer_price=offer
-        offer_used=count//offer_qty
-        
-        left_times = count%offer_qty
-        total_price += offer_used * offer_price + left_times * prices[item]
+        for offer in sorted(offers[item],key=lambda x: -x[0]):
+            offer_qty,offer_price=offer
+            offer_used=count//offer_qty
+            total += offer_used +offer_price
+             
+            
     else:
     total_price += count*prices[item]
 
@@ -90,4 +91,10 @@ def checkout(skus):
     
     total_price=0
     for item, count in items.items():
+        if item in offers and isinstance(offers[item],list):
+            total_price+=apply_prices_offer(item,count,offers,prices)
+        else:
+            total_price+=count*prices[item]
+    return total_price
+
 
