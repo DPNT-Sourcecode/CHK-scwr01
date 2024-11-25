@@ -23,7 +23,7 @@ def test_checkout_3():
     assert checkout("FFF")==20
     assert checkout("FFFF")==30
     assert checkout("FFFFF")==40
-    assert checkout("FFFFF")==40
+    assert checkout("FFFFFF")==40
     
 if __name__ == "__main__":
     pytest.main()
