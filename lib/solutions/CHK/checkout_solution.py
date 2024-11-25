@@ -23,9 +23,11 @@ def get_offers()->dict:
         dict: offers
     """
     return {
-        "A":(3,130),
-        "B":(2,45)
+        "A":[(3,130),(5,200)],
+        "B":[(2,45)]
     }
+    
+    
 def validate_skus(skus,prices) ->bool:
     """validate_skus validate skus
 
@@ -67,3 +69,4 @@ def checkout(skus):
             total_price += count*prices[item]
             
     return total_price
+
