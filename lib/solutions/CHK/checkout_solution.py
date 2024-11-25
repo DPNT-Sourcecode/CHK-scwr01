@@ -76,7 +76,7 @@ def checkout(skus):
                 items[item] -=free
             else:
                 if free in items:
-                    items[free] = max(items[free]-free_items)
+                    items[free] = max(0,items[free]-free_items)
         
     
     total_price=0
@@ -92,9 +92,3 @@ def checkout(skus):
             total_price += count*prices[item]
             
     return total_price
-
-
-
-
-
-
