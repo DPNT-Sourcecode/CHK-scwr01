@@ -61,8 +61,10 @@ def checkout(skus):
         if item in offers:
             offer_qty,offer_price=offers[item]
             offer_used=count//offer_qty
-            total_price += offer_used * offer_price
+            left_times = count%offer_qty
+            total_price += offer_used * offer_price + left_times * prices[item]
         else:
             total_price += count*prices[item]
             
     return total_price
+
